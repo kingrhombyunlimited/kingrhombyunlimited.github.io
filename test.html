@@ -84,6 +84,7 @@ body{
     aspect-ratio:4/3;
     position:relative;
     overflow:hidden;
+    cursor:pointer;
 }
 
 .tile img{
@@ -111,6 +112,50 @@ body{
     width:100%;
     height:100%;
     border:0;
+}
+
+/* FULLSCREEN IMAGE VIEWER */
+
+.viewer{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.95);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.viewer img{
+    max-width:90vw;
+    max-height:90vh;
+    object-fit:contain;
+}
+
+.closeBtn{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    cursor:pointer;
+}
+
+.nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:50px;
+    cursor:pointer;
+    padding:20px;
+    user-select:none;
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
 }
 
 </style>
@@ -152,37 +197,88 @@ allowfullscreen>
 <div class="right">
 
 <!-- URL HERE FOR RIGHTSIDE -->
-<!-- Replace URL_HERE with the website you want -->
 <iframe
 src="https://kingrhombyunlimited.github.io/testvid.html"
 style="width:100%; height:100vh; border:0;">
 </iframe>
 
-<!--
-If instead you want 3 youtube videos stacked like the example,
-remove the iframe above and use this block:
-
-<div class="stack">
-
-<div class="block">
-<iframe src="https://www.youtube.com/embed/VIDEO_ID1"></iframe>
-</div>
-
-<div class="block">
-<iframe src="https://www.youtube.com/embed/VIDEO_ID2"></iframe>
-</div>
-
-<div class="block">
-<iframe src="https://www.youtube.com/embed/VIDEO_ID3"></iframe>
 </div>
 
 </div>
 
--->
+
+<!-- FULLSCREEN VIEWER -->
+<div class="viewer" id="viewer">
+
+<div class="closeBtn" id="closeViewer">✕</div>
+
+<div class="nav prev" id="prevImg">&#10094;</div>
+<div class="nav next" id="nextImg">&#10095;</div>
+
+<img id="viewerImg">
 
 </div>
 
-</div>
+
+<script>
+
+const images = document.querySelectorAll(".grid img");
+const viewer = document.getElementById("viewer");
+const viewerImg = document.getElementById("viewerImg");
+
+let index = 0;
+
+images.forEach((img,i)=>{
+
+    img.addEventListener("click",()=>{
+        index=i;
+        openViewer();
+    });
+
+});
+
+function openViewer(){
+    viewer.style.display="flex";
+    viewerImg.src = images[index].src;
+}
+
+function closeViewer(){
+    viewer.style.display="none";
+}
+
+function nextImage(){
+    index++;
+    if(index >= images.length) index=0;
+    viewerImg.src = images[index].src;
+}
+
+function prevImage(){
+    index--;
+    if(index < 0) index = images.length-1;
+    viewerImg.src = images[index].src;
+}
+
+document.getElementById("closeViewer").onclick = closeViewer;
+document.getElementById("nextImg").onclick = nextImage;
+document.getElementById("prevImg").onclick = prevImage;
+
+viewer.onclick = function(e){
+    if(e.target === viewer) closeViewer();
+}
+
+document.addEventListener("keydown",function(e){
+
+    if(viewer.style.display === "flex"){
+
+        if(e.key === "Escape") closeViewer();
+        if(e.key === "ArrowRight") nextImage();
+        if(e.key === "ArrowLeft") prevImage();
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
