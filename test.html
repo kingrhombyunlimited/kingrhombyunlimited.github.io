@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Page</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#000;
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* MAIN LAYOUT */
+.page{
+    display:flex;
+    gap:20px;
+    padding:20px;
+}
+
+/* LEFT SIDE */
+.left{
+    flex:1;
+    min-width:300px;
+}
+
+/* RIGHT SIDE */
+.right{
+    width:420px;
+    max-width:34vw;
+}
+
+/* STACK ON MOBILE */
+@media(max-width:900px){
+    .page{
+        flex-direction:column;
+    }
+
+    .right{
+        width:100%;
+        max-width:100%;
+    }
+}
+
+/* MAIN VIDEO */
+.video{
+    width:100%;
+    aspect-ratio:16/9;
+    position:relative;
+}
+
+.video iframe{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border:0;
+}
+
+/* INDEX LABEL */
+.label{
+    text-align:center;
+    margin:10px 0 20px 0;
+    color:#00ff88;
+}
+
+/* IMAGE GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+@media(max-width:900px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+.tile{
+    background:#fff;
+    aspect-ratio:4/3;
+    position:relative;
+    overflow:hidden;
+}
+
+.tile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* RIGHT SIDE VIDEO BLOCKS */
+
+.stack{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.block{
+    width:100%;
+    aspect-ratio:16/9;
+    position:relative;
+}
+
+.block iframe{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border:0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- LEFT CONTENT -->
+<div class="left">
+
+<div class="video">
+<iframe
+src="https://www.youtube.com/embed/TOrnUquxtwA"
+allowfullscreen>
+</iframe>
+</div>
+
+<div class="label">index.html</div>
+
+<div class="grid">
+
+<div class="tile"><img src="https://kingrhombyunlimited.github.io/legalphoto1.png"></div>
+<div class="tile"><img src="https://kingrhombyunlimited.github.io/legalphoto2.png"></div>
+<div class="tile"><img src="https://kingrhombyunlimited.github.io/legalphoto3.png"></div>
+<div class="tile"><img src="https://kingrhombyunlimited.github.io/legalphoto4.png"></div>
+
+<div class="tile"><img src="https://kingrhombyunlimited.github.io/legalphoto5.png"></div>
+<div class="tile"><img src="https://kingrhombyunlimited.github.io/legalphoto6.png"></div>
+<div class="tile"><img src="https://kingrhombyunlimited.github.io/legalphoto7.png"></div>
+<div class="tile"><img src="https://kingrhombyunlimited.github.io/legalphoto8.png"></div>
+
+</div>
+</div>
+
+
+<!-- RIGHT SIDE -->
+<div class="right">
+
+<!-- URL HERE FOR RIGHTSIDE -->
+<!-- Replace URL_HERE with the website you want -->
+<iframe
+src="https://kingrhombyunlimited.github.io/testvid.html"
+style="width:100%; height:100vh; border:0;">
+</iframe>
+
+<!--
+If instead you want 3 youtube videos stacked like the example,
+remove the iframe above and use this block:
+
+<div class="stack">
+
+<div class="block">
+<iframe src="https://www.youtube.com/embed/VIDEO_ID1"></iframe>
+</div>
+
+<div class="block">
+<iframe src="https://www.youtube.com/embed/VIDEO_ID2"></iframe>
+</div>
+
+<div class="block">
+<iframe src="https://www.youtube.com/embed/VIDEO_ID3"></iframe>
+</div>
+
+</div>
+
+-->
+
+</div>
+
+</div>
+
+</body>
+</html>
