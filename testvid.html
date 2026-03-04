@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3 YouTube Videos</title>
+
+  <style>
+    body{
+      margin:0;
+      background:#000;
+      color:#fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* each video fills full desktop width */
+    .video{
+      width:100%;
+      position:relative;
+      aspect-ratio: 16 / 9; /* responsive height */
+      background:#000;
+    }
+
+    .video iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    /* space between videos */
+    .spacer{
+      height:20px;
+      background:#000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Video 1 -->
+  <div class="video">
+    <iframe
+      src="https://www.youtube.com/embed/d_WdKrUGkEo"
+      title="YouTube Video 1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- Video 2 -->
+  <div class="video">
+    <iframe
+      src="https://www.youtube.com/embed/XeT-GPcxkXs"
+      title="YouTube Video 2"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- Video 3 -->
+  <div class="video">
+    <iframe
+      src="https://www.youtube.com/embed/RAXI0irYX2g"
+      title="YouTube Video 3"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+</body>
+</html>
