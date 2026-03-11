@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body{
+    background:black;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+/* NORMAL MODE */
+.iframe-normal{
+    width:60%;
+    aspect-ratio:16/9;
+    margin:auto;
+    display:block;
+    transition:0.4s;
+}
+
+/* THEATER MODE */
+.iframe-theater{
+    width:80%;
+}
+
+/* BUTTON */
+.theater-btn{
+    margin:15px;
+    padding:10px 20px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+</style>
+
+<script>
+
+function toggleTheater(){
+
+    let iframes = document.querySelectorAll("iframe");
+
+    iframes.forEach(frame => {
+
+        frame.classList.toggle("iframe-theater");
+
+    });
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>My Videos</h1>
+
+<button class="theater-btn" onclick="toggleTheater()">
+Toggle Theater Mode
+</button>
+
+<iframe class="iframe-normal"
+src="https://www.youtube.com/embed/EfYYHd2RRIg
+allowfullscreen>
+</iframe>
+
+<br><br>
+
+<iframe class="iframe-normal"
+src="https://www.youtube.com/embed/EWU0lJVwyLk?feature=share"
+allowfullscreen>
+</iframe>
+
+</body>
+</html>
