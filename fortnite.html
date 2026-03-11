@@ -33,6 +33,21 @@ body{
     cursor:pointer;
 }
 
+    .video-wrap{
+    position:relative;
+    width:60%;
+    margin:auto;
+    padding-top:56.25%;
+}
+
+.video-wrap iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
 </style>
 
 <script>
@@ -61,17 +76,15 @@ function toggleTheater(){
 Toggle Theater Mode
 </button>
 
-<iframe class="iframe-normal"
-src="https://www.youtube.com/embed/EfYYHd2RRIg
-allowfullscreen>
-</iframe>
+<div class="video-wrap">
+<iframe src="https://www.youtube.com/embed/EfYYHd2RRIg"></iframe>
+</div>
 
 <br><br>
 
-<iframe class="iframe-normal"
-src="https://www.youtube.com/embed/EWU0lJVwyLk"
-allowfullscreen>
-</iframe>
+<div class="video-wrap">
+<iframe src="https://www.youtube.com/embed/EWU0lJVwyLk"></iframe>
+</div>
 
 </body>
 </html>
